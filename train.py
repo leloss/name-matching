@@ -22,7 +22,7 @@ def readScrappedNames(language):
 	return content
 
 
-def readForeignSyntheticNames(language):
+def readForeignScrappedNames(language):
 	with codecs.open('data/scrapped_'+language+'_names.csv', encoding='utf-8') as fin:
 	    content = fin.read().splitlines()
 
