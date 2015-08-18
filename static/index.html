@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.8/css/dataTables.bootstrap.min.css">
+    <style type="text/css">
+
+    body { background: #444444; }
+    .panel { background: #888888; }
+    .top { margin-top:30px; }
+
+    .node rect {
+        cursor: pointer;
+        fill: #ffffff;
+        fill-opacity: .5;
+        stroke: #ffffff;
+        stroke-width: 1.5px;
+    }
+
+    .node text {
+        font: 10px sans-serif;
+        pointer-events: none;
+    }
+
+    path.link {
+        fill: none;
+        stroke: #ffffff;
+        stroke-width: 1.5px;
+    }
+
+    </style>
+</head>
+<body>
+
+    <div id="loading"></div>
+    <div class="container-fluid">
+        <div class="row top">
+            <div class="col-lg-3">
+            </div>
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form class="form-inline" action="javascript:startMatching();" role="form" id="match-form">
+                            <div class="form-group">
+                                <label class="sr-only" for="query-name"></label>
+                                <input type="text" class="form-control" id="query-name" placeholder="Enter your name query" size="65%">
+                            </div>&nbsp;
+                            <div class="form-group pull-right">
+                                <label class="sr-only" for="match-button"></label>
+                                <button class="btn btn-primary pull-right" id="match-button">Find</button>
+                            </div>&nbsp;
+                        </form>
+                    </div>
+                    <div class="panel-body hidden" id="table-panel" >
+                      <div id="result-list" class="table">
+                        <table class="table" id="result-table"></table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="output-result"></div>
+        </div>
+        <div class="col-lg-3">
+            <p><b>Examples:</b></p>
+            <p>Julie Andrews<br>
+            Agustín Arriete<br>
+            Rosario Castellanos<br>
+            Lawrence Mynott<br>
+            Roger G. D. Allen<br>
+            John Harington<br>
+            Bernard Rawlings<br>
+            Frederick Roberts<br>
+            Frederick J. Robinson<br>
+            Chris Ryan<br>
+            Siegfried Sassoon<br>
+            Charles Saunders<br>
+            Horace Smith-Dorrien<br>
+            Fitzroy Somerset<br>
+            Verónica Castro<br>
+            Sharis Cid<br>
+            Karla Coss¡o<br>
+            Claudia Cota<br>
+            Alfonso Cuarón<br>
+            Eugenio Derbez<br>
+            Aarón Diaz<br>
+            Liliana Dominguez<br>
+            Maria Dulce<br>
+            Nadine Dwek<br>
+            Jean Duverger<br>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="http://mbostock.github.com/d3/d3.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.8/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.8/js/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/names.js"></script>
+</body>
+</html>
