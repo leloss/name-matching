@@ -29,6 +29,12 @@ def scrapeOrcidNames(content, lim):
 	list_of_names=[]
 	for i in content:
 		lastname = i.split(' ')[1]
+		#prevents repetition in the dataset
+		if lastname in hash_names:
+			print 'Skipping', lastname
+			continue
+		else:
+			hash_names[lastname]=True
 		print 'Scraping '+lastname,
 		url = 'http://pub.orcid.org/v1.2/search/orcid-bio/?q=family-name:'+lastname+'&start=0&rows=10000'
 		response = requests.get(url)
@@ -52,6 +58,8 @@ def main():
 	print '---ENGLISH---'
 	writeCleanFileUTF('data/scrapped_english_names',scrapeOrcidNames(readEnglishFamilyNames(),MAX))
 
+
+hash_names={} #avoid scrapping repeated names
 main()
 
 # name='Sanchez'

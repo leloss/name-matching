@@ -11,7 +11,7 @@ from train import learn
 def sortDictionary(x):
     return sorted(x.items(), key=operator.itemgetter(1),reverse=True)
 
-#skipgram adapted from ...
+#skipgram adapted from http://stackoverflow.com/questions/31847682/how-to-compute-skipgrams-in-python
 def skipgrams(sequence, n, k):
     for ngram in ngrams(sequence, n + k, pad_right=True):
         head = ngram[:1]

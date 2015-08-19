@@ -31,6 +31,9 @@ def serve_js(filename):
 		return ''
     return send_from_directory('js', filename, as_attachment=False)
 
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory('static','favicon.ico', as_attachment=False)
 
 if __name__ == '__main__':
   app.run(debug=True)

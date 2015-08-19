@@ -7,8 +7,10 @@ def learn():
 	Dict=[]
 	num=1000
 	#In the future, a language detector can be used to reduce the amount of data load in memory
-	Dict.append(ngram.NGram(readRealNames('english')))
-	Dict.append(ngram.NGram(readForeignRealNames('spanish')))
+	#Dict.append(ngram.NGram(readRealNames('english')))
+	#Dict.append(ngram.NGram(readForeignRealNames('spanish')))
+	#Dict.append(ngram.NGram(readSyntheticNames('english')))
+	#Dict.append(ngram.NGram(readForeignSyntheticNames('spanish')))
 	Dict.append(ngram.NGram(readScrappedNames('english')))
 	Dict.append(ngram.NGram(readForeignScrappedNames('spanish')))
 

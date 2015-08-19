@@ -46,7 +46,7 @@ def generateEnglishSynthNames(num):
 
 
 #generates synthetic spanish names for training 
-#data scraped from http://www.babycenter.com/0_100-most-popular-hispanic-baby-names-of-2011_10363639.bc 
+#data scrapped from http://www.babycenter.com/0_100-most-popular-hispanic-baby-names-of-2011_10363639.bc 
 #              and http://genealogy.familyeducation.com/browse/origin/spanish
 def generateSpanishSynthNames(num):
 	with codecs.open('raw/spanish_firstnames.txt', encoding='utf-8') as fin:
