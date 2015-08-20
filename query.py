@@ -31,11 +31,29 @@ def skipgrams(sequence, n, k):
 #Generate bootstrapped version of query through skipgram
 def bootstrapQuery(query):
     query=query.lower()
+    #User friendliness ad hoc addition:
+    #Training was not performed for 1-word names
+    #So adds a bogus letter so there's at least one result
+    if len(query.split()) < 2:
+        query += ' a'
+
     query_skip_gram = []
     sz = len(query.split())
     for i in range(2,sz+1):
         query_skip_gram += list(skipgrams(query.split(), n=i, k=2))
     
+
+    #User friendliness ad hoc addition:
+    #Reverse first and last name
+    #to reflect how names are written in certain countries
+    reversed_query = []
+    for i in query_skip_gram:
+        sp_query = i.split()
+        if len(sp_query) > 1:
+            sp_query.append(sp_query[0]) #add first name last
+            reversed_query.append(' '.join(sp_query[1:]))
+    query_skip_gram.extend(reversed_query)
+
     return query_skip_gram
 
 
@@ -43,11 +61,17 @@ def bootstrapQuery(query):
 #and stores high score matches
 def matchQuerySkipgram(query_skipgram, ngramDict):
     matches={}
+    max_match=['',0]
     for i in range(0,len(query_skipgram)):
         for ngr in ngramDict:
             res=ngr.search(query_skipgram[i])
             for nm in res:
                 name, score = nm
+                # #Stores highest score
+                # if score > max_match[1]:
+                #     max_match[0] = name
+                #     max_match[1] = score
+                #Only displays names with score above .25
                 if score > .25:
                     if name in matches:
                         if score > matches[name]:
@@ -55,6 +79,10 @@ def matchQuerySkipgram(query_skipgram, ngramDict):
                     else:
                         matches[name.encode('UTF-8')]=score
 
+    #User friendliness ad hoc addition:
+    #When there are not matches, relaxes score thresholding
+    if len(matches) < 1:
+        matches[max_match[0].encode('UTF-8')]=max_match[1]
     return matches
 
 def match(query):

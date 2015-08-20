@@ -29,6 +29,7 @@ def scrapeOrcidNames(content, lim):
 	list_of_names=[]
 	for i in content:
 		lastname = i.split(' ')[1]
+		print 'Processing',lastname
 		#prevents repetition in the dataset
 		if lastname in hash_names:
 			print 'Skipping', lastname
