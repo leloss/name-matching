@@ -67,10 +67,10 @@ def matchQuerySkipgram(query_skipgram, ngramDict):
             res=ngr.search(query_skipgram[i])
             for nm in res:
                 name, score = nm
-                # #Stores highest score
-                # if score > max_match[1]:
-                #     max_match[0] = name
-                #     max_match[1] = score
+                #Stores highest score in case nothing is above threshold
+                if score > max_match[1]:
+                    max_match[0] = name
+                    max_match[1] = score
                 #Only displays names with score above .25
                 if score > .25:
                     if name in matches:

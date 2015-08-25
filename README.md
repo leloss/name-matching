@@ -3,7 +3,7 @@
 by Leandro Loss - August 2015
 
 
-### RUNNING THE CODE 
+## RUNNING THE CODE 
 
 Unzip files, keeping the original folder structure. 
   The zip file comes with a sample dataset containing both
@@ -35,10 +35,8 @@ I also put it up online:
 
 Note: The name matching app is being hosted by
       a free tier web server (Heroku), which could
-      present higher latencies due to low hardware specs.
 
-
-###INGESTING DATA
+##INGESTING DATA
 
 Ingestion.py offers 2 ways of populating 
   the name data sets used for matching:
@@ -62,7 +60,7 @@ As one can notice, the above ingestions are either
   lists of popular family names in English and Spanish to
   pull full names from ORCID's public database.
 
-###TECHNICAL APPROACH
+##TECHNICAL APPROACH
 
 Our approach utilizes n-gram models to represent a name
   space. As per its definition, an n-gram model is a type 
@@ -89,7 +87,7 @@ Summarizing, our approach is split by two main tasks: training
   Querying reads one name, encodes it as a skip-gram (becoming
   now many queries), which is compared to the trained set.
 
-###TECHNICAL DETAILS
+##TECHNICAL DETAILS
 
 We used Python's n-gram library (https://pythonhosted.org/ngram/)
   and a public implementation of the skip-gram 
@@ -103,7 +101,7 @@ For training, despite all ingestion options above, the most realistic set
   from common English and Spanish family names (sources in ingestion.py).
   
 
-###LIMITATIONS
+##LIMITATIONS
 
 The parameters set above limit the extent of name mistakes and variations allowed
   during querying. The size of the data set influences the retrieval time. 50k 
@@ -118,5 +116,4 @@ Although only tested with English and Spanish (and some French, German, and Japa
   
 Another improvement on the to-do list is the addition of a "nickname data set', so 
   names like 'William' can be matched against 'Will', 'Bill', etc.
-
 

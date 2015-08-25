@@ -1,6 +1,6 @@
 from random import randint
-from codecs import open
-from re import sub
+import codecs
+import re
 #import csv
 
 
@@ -38,8 +38,8 @@ def generateEnglishSynthNames(num):
 	m=len(lastnames)
 
 	for k in range(num):
-	    i = random.randint(0,n-1)
-	    j = random.randint(0,m-1)
+	    i = randint(0,n-1)
+	    j = randint(0,m-1)
 	    synth_eng_names.append(firstnames[i].lower()+' '+lastnames[j].lower())
 
 	writeCleanFile('synthetic_english_names',synth_eng_names)
@@ -67,8 +67,8 @@ def generateSpanishSynthNames(num):
 	m=len(lastnames)
 
 	for k in range(num):
-	    i = random.randint(0,n-1)
-	    j = random.randint(0,m-1)
+	    i = randint(0,n-1)
+	    j = randint(0,m-1)
 	    synth_spa_names.append(firstnames[i].lower()+' '+lastnames[j].lower())
 
 	writeCleanFileUTF('synthetic_spanish_names',synth_spa_names)
