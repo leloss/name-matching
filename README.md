@@ -126,3 +126,4 @@ pip install nltk
 pip install flask
 ```
 
+I just noticed that calling https://127.0.0.1:5000 on the MS Edge browser causes Flask to throw an exception. Try with a different browser.
