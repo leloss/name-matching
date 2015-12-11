@@ -8,7 +8,7 @@ by Leandro Loss - August 2015
 Unzip files, keeping the original folder structure. 
   The zip file comes with a sample dataset containing both
   English and Spanish names (See how to ingest new/more names
-  below).
+  below). *See Troubleshooting Installation below.
   
 Code can then be tested using a python interpreter:
 
@@ -116,4 +116,13 @@ Although only tested with English and Spanish (and some French, German, and Japa
   
 Another improvement on the to-do list is the addition of a "nickname data set', so 
   names like 'William' can be matched against 'Will', 'Bill', etc.
+
+##TROUBLESHOOTING INSTALLATION
+
+You may need to install nltk and flask to run server.py. For that, simply run:
+
+```
+pip install nltk
+pip install flask
+```
 
